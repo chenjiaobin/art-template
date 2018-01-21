@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="./res/js/jquery-1.11.3.min.js"></script>
+		
+		<!-- header.html 编译后的 template.js -->
+		<script type="text/javascript" src="./template/build/template.js"></script>
+		
+		<!-- 使用jsonp可以解决跨域访问，后面文章介绍 -->
+		<script type="text/javascript" src="./res/js/jquery.jsonp.js"></script>
+		
+		<script type="text/javascript">
+			//Jquery在页面加载完成后执行；
+			jQuery(document).ready(function($){
+				/**
+				*1）一般data 是通过 ajax 请求后台rest接口的数据；
+				*2）也可以通过ajax请求 json文件 实现；
+				*3）我们这里暂时写死；（前2种后面文章做介绍）
+				**/
+				var data = {menu1:'我的菜单1',menu2:'我的菜单2',menu3:'我的菜单3'};
+				
+				//渲染数据，template返回值是HTML
+				var headerHTML = template('header',data); 
+				$('#headerDIV').html(headerHTML);//内容插入到 headerDIV标签中 
+			});	
+		</script>
+		
+	</head>
+
+	<body>
+		<!-- 头部-start -->
+		<div id="headerDIV"></div>
+		<!-- 头部-end -->
+	</body>
+	
+</html>
+
